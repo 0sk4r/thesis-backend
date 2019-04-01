@@ -1,0 +1,27 @@
+addons:
+  postgresql: '10'
+services:
+- postgresql
+before_script:
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+dist: xenial
+language: ruby
+rvm:
+- 2.6.2
+script:
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rspec
+- bundle exec rubocop
+deploy:
+  provider: heroku
+  api_key:
+    secure: ECfmUWsvOam+B001eJ+qNZ7uB8VpKXIpsKA8sNOPArRk9slhCJgORGvpuyq8bMxPLWhyAd2zr4L1npJqpJXBW7Vlb4WCtos7lqz8mOt0TdwcwYOxO0oqNL3I9t6dmX/CFXyD2j2rwZR9KOFM92ny5uFJ6c0FsJAHjCQ8gDgDR40RwLEblySiFn459TSPXYS9pVWxmIJD5PxkL3blBf/XZkLKQYS/uakPdzwt8GQmhzlaUwVqlTrS9n2r6KNEe+GR0dnOZX4rWRF8pcA5F/g6JIxnLgABATsOO2l/1nJIcMboKH7n+pPGr03byo8VPbEfcLx6BS/E8LLLq0fwL/4IiZXl1eRfZGYS5AlaPbQ4SVsyLpW/h9/M4AucRcxTMkb9IIlEUHSX2ckupM1UyzP4i8cD2DngcVXm7oibOKfVs250ORDaX0wvRP/ZRojXubL95oLSw/jH7TbPKGZFinsY/26rR/ADCOiP/Elj3HI/pQKEt0XV/vCMSyglzIrOgLmWFJ6Rs4145leJiXwLhTZUW7cHqm2aAvtGu+VXFW2D5eKyG8scEMukJA75WsVuNHW3YrfmCByEat6BXndxXas0DYmzfC4ZoNhCBIfO4LXMYPrC+ThNX6nA/7dBe0nwmYDUCGbTLyT8GKNaL+HBXyxOeFNYuao8uLdbZBkSHGWmXPI=
+  app: thesis-code
+  on:
+    repo: 0sk4r/thesis-code
+    branch: development
+  run:
+    - "rake db:migrate"
+    - restart
+    - "rake cleanup"
