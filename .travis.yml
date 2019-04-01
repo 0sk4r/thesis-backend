@@ -1,5 +1,5 @@
 addons:
-  postgresql: 11.2
+  postgresql: "11"
 services:
   - postgresql
 before_script:
