@@ -1,5 +1,6 @@
-class HomeController < ApplicationController
+# frozen_string_literal: true
 
+class HomeController < ApplicationController
   before_action :authenticate_user!, only: %i[test]
   def index
     render :index
@@ -8,5 +9,4 @@ class HomeController < ApplicationController
   def test
     render :test
   end
-
 end
