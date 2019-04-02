@@ -29,3 +29,7 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/*.rb'
+  Max: 20
+
+Style/ClassAndModuleChildren:
+  Enabled: false
