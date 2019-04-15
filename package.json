@@ -3,6 +3,8 @@
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
     "@rails/webpacker": "^4.0.2",
     "autoprefixer": "^9.5.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",

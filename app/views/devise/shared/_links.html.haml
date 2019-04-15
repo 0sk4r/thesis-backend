@@ -1,0 +1,30 @@
+.row
+  - if controller_name != 'sessions'
+    %a.btn.btn-block.btn-default{:href => new_session_path(resource_name)}
+      %i.fas.fa-sign-in-alt
+      Log in
+.row
+  - if devise_mapping.registerable? && controller_name != 'registrations'
+    %a.btn.btn-block.btn-default{:href => new_registration_path(resource_name)}
+      %i.fas.fa-user-plus
+      Sign up
+.row
+  - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+    %a.btn.btn-block.btn-default{:href => new_password_path(resource_name)}
+      %i.fas.fa-unlock-alt
+      Forgot your password?
+.row
+  - if devise_mapping.confirmable? && controller_name != 'confirmations'
+    %a.btn.btn-block.btn-default{:href => new_confirmation_path(resource_name)}
+      %i.fas.fa-check
+      Didn't receive confirmation instructions?
+.row
+  - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
+    = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)
+.row
+  - if devise_mapping.omniauthable?
+    -# - resource_class.omniauth_providers.each do |provider|
+    -#   = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+    %a.btn.btn-block.btn-default{:href => omniauth_authorize_path(resource_name, :google_oauth2)}
+      %i.fab.fa-google
+      Sign in with Google
