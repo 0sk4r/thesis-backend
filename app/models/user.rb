@@ -1,10 +1,18 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable, :omniauthable, omniauth_providers: %i[google_oauth2]
+
+  validates :nick, presence: true
+  validates :nick, uniqueness: true
+  validates :email, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :password, presence: true
 
   def self.from_omniauth(access_token)
     data = access_token.info
