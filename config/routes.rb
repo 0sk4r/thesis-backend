@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  resources :posts
+
   get 'home/test', to: 'home#test'
 end
