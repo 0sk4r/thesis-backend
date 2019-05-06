@@ -8,5 +8,4 @@ Rails.application.routes.draw do
     resources :test
     get '/test2', to: 'test#test'
   end
-
 end
