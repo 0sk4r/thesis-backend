@@ -27,7 +27,7 @@ module Api
     private
 
     def post_params
-      params.permit(:content, :title).merge(user_id: current_user.id)
+      params.permit(:content, :title, :image).merge(user_id: current_user.id)
     end
   end
 end
