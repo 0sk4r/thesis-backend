@@ -5,16 +5,22 @@ module Api
     before_action :authenticate_user!, only: [:create]
 
     def index
-      render json: { "test": 'testowa' }
+      @posts = Post.all
+      render json: @posts
+    end
+
+    def show
+      @post = Post.find(params[:id])
+      render json: @post
     end
 
     def create
       post = Post.new(post_params)
 
       if post.save
-        render json: { "message": 'Post successfully created', "post": post }
+        render json: {"message": 'Post successfully created', "post": post}
       else
-        render status: 422, json: { "errors": post.errors.full_messages.join('. ') }
+        render status: 422, json: {"errors": post.errors.full_messages.join('. ')}
       end
     end
 
