@@ -21,6 +21,7 @@ Style/AsciiComments:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
+    - 'config/environments/*'
 
 Metrics/MethodLength:
   Exclude:

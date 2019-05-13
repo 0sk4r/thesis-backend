@@ -18,9 +18,9 @@ module Api
       post = Post.new(post_params)
 
       if post.save
-        render json: {"message": 'Post successfully created', "post": post}
+        render json: { "message": 'Post successfully created', "post": post }
       else
-        render status: 422, json: {"errors": post.errors.full_messages.join('. ')}
+        render status: 422, json: { "errors": post.errors.full_messages.join('. ') }
       end
     end
 
