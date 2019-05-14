@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable, :confirmable
   include DeviseTokenAuth::Concerns::User
 
-  validates :email, :encrypted_password, presence: true
+  validates :email, :encrypted_password, :nickname, :name, presence: true
 end
