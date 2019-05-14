@@ -44,8 +44,13 @@ gem 'devise_token_auth'
 
 gem 'rack-cors', require: 'rack/cors'
 
+gem 'active_model_serializers', '~> 0.10.2'
+
+gem 'carrierwave'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', require: false
 end

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :test
     get '/test2', to: 'test#test'
+    resources :posts
   end
 end
