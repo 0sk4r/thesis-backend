@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Api
   class CommentsController < ApplicationController
-    
     before_action :authenticate_user!, only: [:create]
 
     def create
@@ -17,11 +18,11 @@ module Api
       comments = Comment.find(params[:id])
       render json: comments
     end
-    
+
     private
 
     def comment_params
-        params.permit(:content, :post_id).merge(user_id: current_user.id)
+      params.permit(:content, :post_id).merge(user_id: current_user.id)
     end
   end
 end
