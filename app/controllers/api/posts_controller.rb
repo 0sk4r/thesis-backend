@@ -6,7 +6,7 @@ module Api
 
     def index
       @posts = Post.all
-      render json: @posts, include: 'user'
+      render json: @posts, include: ['user', 'comment']
     end
 
     def show
