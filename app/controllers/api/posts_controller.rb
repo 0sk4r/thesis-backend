@@ -6,11 +6,12 @@ module Api
 
     def index
       @posts = Post.all
-      render json: @posts, include: ['user', 'comment']
+      render json: @posts, include: ['user']
     end
 
     def show
       @post = Post.find(params[:id])
+
       render json: @post, include: ['user', 'comment.user']
     end
 
