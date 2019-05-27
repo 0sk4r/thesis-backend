@@ -3,6 +3,7 @@
 module Api
   class TestController < ApplicationController
     before_action :authenticate_user!, only: [:test]
+
     def index
       render json: { "test": 'testowa' }
     end
