@@ -5,7 +5,7 @@ class MentionsService
     @comment_id = comment_id
   end
 
-  def call()
+  def call
     @comment = Comment.find(@comment_id)
 
     mentioned_accounts = @comment.content.scan(/\s@([\w]+)/)

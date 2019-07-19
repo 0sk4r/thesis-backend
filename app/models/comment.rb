@@ -8,7 +8,7 @@ class Comment < ApplicationRecord
 
   validates_presence_of :content
 
-  def create_mentions(comment_id: self.id)
+  def create_mentions(comment_id: id)
     MentionsWorker.perform_async(comment_id)
   end
 end

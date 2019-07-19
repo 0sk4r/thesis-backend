@@ -2,7 +2,7 @@
 
 module Api
   class NotificationsController < ApplicationController
-    before_action :authenticate_user!, only: [:index, :destroys]
+    before_action :authenticate_user!, only: %i[index destroys]
 
     def index
       # @notifications = Notification.where(user_id: current_user.id)
