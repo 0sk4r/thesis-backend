@@ -10,8 +10,11 @@ Rails.application.routes.draw do
     resources :posts
     resources :comments
     resources :likes
-
     get '/users/find', to: "users#find"
+    resources :users
+
+    get '/users/:id/posts', to: "users#user_posts"
+    delete '/notifications/delete_all', to: 'notifications#destroy_all'
     resources :notifications
   end
 end
