@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_11_171047) do
+ActiveRecord::Schema.define(version: 2019_07_19_142736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -59,6 +65,8 @@ ActiveRecord::Schema.define(version: 2019_07_11_171047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -94,5 +102,6 @@ ActiveRecord::Schema.define(version: 2019_07_11_171047) do
   add_foreign_key "mentions", "comments"
   add_foreign_key "mentions", "users"
   add_foreign_key "notifications", "users"
+  add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
 end

@@ -4,6 +4,7 @@ class PostSerializer < ActiveModel::Serializer
   attributes :id, :title, :content, :created_at, :image, :likes, :dislikes, :comment_count
 
   belongs_to :user
+  belongs_to :category
   has_many :comment
 
   def likes

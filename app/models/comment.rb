@@ -6,6 +6,7 @@ class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
 
+  has_many :mentions, dependent: :destroy
   validates_presence_of :content
 
   def create_mentions(comment_id: id)

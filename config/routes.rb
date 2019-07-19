@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     get '/users/:id/posts', to: 'users#user_posts'
     delete '/notifications/delete_all', to: 'notifications#destroy_all'
     resources :notifications
+    resources :categories, only: [:index]
   end
 end

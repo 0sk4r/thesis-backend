@@ -6,13 +6,13 @@ module Api
 
     def index
       @posts = Post.all
-      render json: @posts, include: ['user']
+      render json: @posts, include: ['user', 'category']
     end
 
     def show
       @post = Post.find(params[:id])
 
-      render json: @post, include: ['user', 'comment.user']
+      render json: @post, include: ['user', 'category', 'comment.user']
     end
 
     def create
@@ -28,7 +28,7 @@ module Api
     private
 
     def post_params
-      params.permit(:content, :title, :image).merge(user_id: current_user.id)
+      params.permit(:content, :title, :image, :category_id).merge(user_id: current_user.id)
     end
   end
 end

@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
 
   validates :email, :encrypted_password, :nickname, :name, presence: true
 
-  has_many :posts
-  has_many :notifications
+  has_many :posts, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 end
