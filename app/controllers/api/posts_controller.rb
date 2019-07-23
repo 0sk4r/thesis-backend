@@ -2,7 +2,7 @@
 
 module Api
   class PostsController < ApplicationController
-    before_action :authenticate_user!, only: [:create]
+    before_action :authenticate_user!, only: [:create, :edit]
 
     def index
       @posts = Post.all
@@ -22,6 +22,28 @@ module Api
         render json: { "message": 'Post successfully created', "post": post }
       else
         render status: 422, json: { "errors": post.errors.full_messages.join('. ') }
+      end
+    end
+
+    def edit
+      @post = Post.find(params[:id])
+
+      if @post.user_id != current_user.id
+        render status: 401, json: {"errors": "You are not allowed to do this."}
+      else
+        render json: @post, include: ['category']
+      end
+    end
+
+    def update
+      @post = Post.find(params[:id])
+
+      @post.update(post_params)
+
+      if @post.save
+        render json: { "message": 'Post successfully updated', "post": @post }
+      else
+        render status: 422, json: { "errors": @post.errors.full_messages.join('. ') }
       end
     end
 
