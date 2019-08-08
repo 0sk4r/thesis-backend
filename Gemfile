@@ -70,6 +70,7 @@ group :development do
 
   gem 'solargraph'
 
+  gem 'letter_opener'
   gem 'rails-erd'
 end
 

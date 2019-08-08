@@ -2,11 +2,11 @@
 
 module Api
   class PostsController < ApplicationController
-    before_action :authenticate_user!, only: [:create, :edit]
+    before_action :authenticate_user!, only: %i[create edit]
 
     def index
-      @posts = Post.all
-      render json: @posts, include: ['user', 'category']
+      @posts = Post.all.order(created_at: :desc)
+      render json: @posts, include: %w[user category]
     end
 
     def show
@@ -29,7 +29,7 @@ module Api
       @post = Post.find(params[:id])
 
       if @post.user_id != current_user.id
-        render status: 401, json: {"errors": "You are not allowed to do this."}
+        render status: 401, json: { "errors": 'You are not allowed to do this.' }
       else
         render json: @post, include: ['category']
       end

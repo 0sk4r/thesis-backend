@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
   has_many :comment, dependent: :destroy
   has_many :like, dependent: :destroy
-  
+
   belongs_to :category
 
   validates_presence_of :title, :content

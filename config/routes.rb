@@ -9,17 +9,17 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :posts
-    resources :comments
-    resources :likes
-    get '/users/getInfo', to: 'users#getInfo'
+    resources :comments, only: %i[create show]
+    resources :likes, only: [:create]
+    get '/users/getInfo', to: 'users#my_info'
     patch '/users/edit', to: 'users#update'
     get '/users/edit', to: 'users#edit'
     get '/users/find', to: 'users#find'
-    resources :users
+    resources :users, only: %i[show edit update]
 
     get '/users/:id/posts', to: 'users#user_posts'
     delete '/notifications/delete_all', to: 'notifications#destroy_all'
-    resources :notifications
+    resources :notifications, only: %i[index destroy]
     resources :categories, only: [:index]
   end
 end

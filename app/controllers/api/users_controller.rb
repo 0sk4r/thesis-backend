@@ -2,8 +2,7 @@
 
 module Api
   class UsersController < ApplicationController
-
-    before_action :authenticate_user!, only: [:update, :edit, :getInfo]
+    before_action :authenticate_user!, only: %i[update edit getInfo]
 
     def find
       provider = UserProvider.new(params[:key])
@@ -37,9 +36,9 @@ module Api
       else
         render status: 422, json: { "errors": @user.errors.full_messages.join('. ') }
       end
-    end 
-    
-    def getInfo
+    end
+
+    def my_info
       @user = User.find(current_user.id)
       render json: @user
     end
