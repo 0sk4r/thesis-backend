@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :posts
     resources :comments
     resources :likes
+    get '/users/getInfo', to: 'users#getInfo'
     patch '/users/edit', to: 'users#update'
     get '/users/edit', to: 'users#edit'
     get '/users/find', to: 'users#find'
