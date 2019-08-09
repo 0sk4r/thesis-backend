@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :posts
-    resources :comments, only: %i[create show]
+    resources :comments, only: %i[create]
     resources :likes, only: [:create]
     get '/users/getInfo', to: 'users#my_info'
     patch '/users/edit', to: 'users#update'

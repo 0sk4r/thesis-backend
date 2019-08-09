@@ -14,11 +14,6 @@ module Api
       end
     end
 
-    def show
-      comments = Comment.find(params[:id])
-      render json: comments
-    end
-
     private
 
     def comment_params

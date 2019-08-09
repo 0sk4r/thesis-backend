@@ -8,5 +8,6 @@ FactoryBot.define do
     nickname { Faker::Internet.username }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
+    confirmed_at { Time.now }
   end
 end

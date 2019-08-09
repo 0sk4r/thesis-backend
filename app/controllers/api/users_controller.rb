@@ -2,7 +2,7 @@
 
 module Api
   class UsersController < ApplicationController
-    before_action :authenticate_user!, only: %i[update edit getInfo]
+    before_action :authenticate_user!, only: %i[update edit my_info]
 
     def find
       provider = UserProvider.new(params[:key])
