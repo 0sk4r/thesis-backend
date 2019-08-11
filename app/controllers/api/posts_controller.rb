@@ -5,12 +5,12 @@ module Api
     before_action :authenticate_user!, only: %i[create edit]
 
     def index
-      @posts = Post.all.order(created_at: :desc)
+      @posts = Post.all.order(created_at: :desc).includes(:user, :category)
       render json: @posts, include: %w[user category]
     end
 
     def show
-      @post = Post.find(params[:id])
+      @post = Post.includes(:user).find(params[:id])
 
       render json: @post, include: ['user', 'category', 'comment.user']
     end
