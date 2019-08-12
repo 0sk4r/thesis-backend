@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   namespace :api do
+    resources :posts do
+      get 'page/:page', action: :index, on: :collection
+    end
     resources :posts
     resources :comments, only: %i[create]
     resources :likes, only: [:create]

@@ -49,7 +49,9 @@ gem 'active_model_serializers', '~> 0.10.2'
 gem 'carrierwave'
 gem 'fog'
 gem 'fog-google'
+gem 'kaminari'
 gem 'sidekiq'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'bullet'
