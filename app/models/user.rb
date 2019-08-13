@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   validates :email, :encrypted_password, :nickname, :name, presence: true
-
+  validates :nickname, uniqueness: true
   has_many :posts, dependent: :destroy
   has_many :notifications, dependent: :destroy
 end
