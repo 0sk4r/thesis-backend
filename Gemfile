@@ -39,14 +39,35 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'devise'
+gem 'devise_token_auth'
+
+gem 'rack-cors', require: 'rack/cors'
+
+gem 'active_model_serializers', '~> 0.10.2'
+
+gem 'carrierwave'
+gem 'fog'
+gem 'fog-google'
+gem 'kaminari'
+gem 'sidekiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'railroady'
+  gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', require: false
+  gem 'shoulda-matchers'
+  gem 'simplecov'
 end
 
 group :development do
+  gem 'annotate'
+
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
@@ -54,7 +75,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'rspec-rails', '~> 3.8'
+  gem 'solargraph'
+
+  gem 'letter_opener'
+  gem 'rails-erd'
 end
 
 group :test do
