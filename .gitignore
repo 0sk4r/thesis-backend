@@ -38,3 +38,5 @@ yarn-debug.log*
 .idea
 
 /coverage
+erd.*
+dump.rdb
