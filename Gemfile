@@ -47,6 +47,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers', '~> 0.10.2'
 
 gem 'carrierwave'
+gem 'faker'
 gem 'fog'
 gem 'fog-google'
 gem 'kaminari'
@@ -57,7 +58,6 @@ group :development, :test do
   gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'railroady'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', require: false
