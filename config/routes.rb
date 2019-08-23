@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :posts do
       get 'page/:page', action: :index, on: :collection
     end
-    resources :posts
+    resources :posts, only: %i[show create edit update]
     resources :comments, only: %i[create]
     resources :likes, only: [:create]
     get '/users/getInfo', to: 'users#my_info'

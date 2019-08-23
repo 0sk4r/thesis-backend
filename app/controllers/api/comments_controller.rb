@@ -4,6 +4,21 @@ module Api
   class CommentsController < ApplicationController
     before_action :authenticate_user!, only: [:create]
 
+    # API for creating comments
+
+    # Authentication headers:
+    # "access-token": "wwwww",
+    # "token-type":   "Bearer",
+    # "client":       "xxxxx",
+    # "expiry":       "yyyyy",
+    # "uid":          "zzzzz"
+
+    # POST /api/comments crate comment for post with :post_id
+    # params:
+    #       :post_id Post ID of associated post
+    #       :content  comment content
+    # Response with updated post data
+
     def create
       comment = Comment.new(comment_params)
 
