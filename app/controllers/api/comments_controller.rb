@@ -23,7 +23,7 @@ module Api
       comment = Comment.new(comment_params)
 
       if comment.save
-        render json: { "message": 'Comment successfully created', "comment": comment }
+        render json: comment, include: ['user']
       else
         render status: 422, json: { "errors": comment.errors.full_messages.join('. ') }
       end
