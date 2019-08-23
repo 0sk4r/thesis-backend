@@ -30,7 +30,7 @@ RSpec.describe Api::CommentsController, type: :request do
 
       it 'response with created post' do
         json_response = JSON.parse(response.body)
-        expect(json_response['comment']['content']).to eq('Test')
+        expect(json_response['content']).to eq('Test')
       end
     end
   end
