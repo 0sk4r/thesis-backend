@@ -27,7 +27,7 @@ Category.create(name: 'Politics')
 
 (1..5).each do |category|
   (1..5).each do |_x|
-    Post.create(title: Faker::Lorem.sentence, content: Faker::Hacker.say_something_smart, category_id: category, user_id: user1.id)
-    Post.create(title: Faker::Lorem.sentence, content: Faker::Hacker.say_something_smart, category_id: category, user_id: user2.id)
+    Post.create(title: Faker::Book.title, content: Faker::Hacker.say_something_smart, category_id: category, user_id: user1.id)
+    Post.create(title: Faker::Book.title, content: Faker::Hacker.say_something_smart, category_id: category, user_id: user2.id)
   end
 end

@@ -51,6 +51,7 @@ gem 'faker'
 gem 'fog'
 gem 'fog-google'
 gem 'kaminari'
+gem 'pg_search'
 gem 'sidekiq'
 
 group :development, :test do

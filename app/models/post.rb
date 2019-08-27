@@ -15,6 +15,7 @@
 #
 
 class Post < ApplicationRecord
+  include PgSearch::Model
   mount_uploader :image, ImageUploader
   belongs_to :user
 
@@ -24,4 +25,8 @@ class Post < ApplicationRecord
   belongs_to :category
 
   validates_presence_of :title, :content
+
+  pg_search_scope :search_title, against: [:title], using: {
+    trigram: { threshold: 0.1 }
+  }
 end
