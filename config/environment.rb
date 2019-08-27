@@ -10,8 +10,8 @@ require 'carrierwave'
 Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  user_name: Rails.application.credentials.sendgrid[:username],
-  password: Rails.application.credentials.sendgrid[:password],
+  user_name: 'apikey',
+  password: Rails.application.credentials.sendgrid[:apikey],
   domain: 'yourdomain.com',
   address: 'smtp.sendgrid.net',
   port: 587,
