@@ -192,6 +192,11 @@ module Api
       end
     end
 
+    def search
+      provider = PostProvider.new(params[:key])
+      render json: provider.results
+    end
+
     private
 
     def post_params

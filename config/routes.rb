@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   namespace :api do
+    get '/search(/:key)', to: 'posts#search'
     resources :posts do
       get 'page/:page', action: :index, on: :collection
     end
