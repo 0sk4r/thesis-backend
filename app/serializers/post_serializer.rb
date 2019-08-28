@@ -13,10 +13,12 @@ class PostSerializer < ActiveModel::Serializer
   def likes
     object.like.where(like_type: 0).count
   end
+
   # Count dislikes
   def dislikes
     object.like.where(like_type: 1).count
   end
+
   # Count comments
   def comment_count
     object.comment.count

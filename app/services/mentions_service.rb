@@ -9,7 +9,7 @@ class MentionsService
   def call
     @comment = Comment.find(@comment_id)
 
-    # Find all mentioned @user in post  
+    # Find all mentioned @user in post
     mentioned_accounts = @comment.content.scan(/\s@([\w]+)/)
 
     # For each user create notification
