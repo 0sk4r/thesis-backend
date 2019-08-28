@@ -21,6 +21,7 @@ class Comment < ApplicationRecord
   has_many :mentions, dependent: :destroy
   validates_presence_of :content
 
+  # After create post search for mentions
   def create_mentions(comment_id: id)
     MentionsWorker.perform_async(comment_id)
   end

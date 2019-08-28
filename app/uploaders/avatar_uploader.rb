@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# User avatar uploader
 class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -7,6 +8,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
+
+  # Store file in cloud becouse heroku cant store it
   storage :fog
 
   # Override the directory where uploaded files will be stored.

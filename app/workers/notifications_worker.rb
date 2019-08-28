@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Create notification in background
 class NotificationsWorker
   include Sidekiq::Worker
 

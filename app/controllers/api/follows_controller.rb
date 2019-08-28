@@ -4,6 +4,7 @@ module Api
   class FollowsController < ApplicationController
     before_action :authenticate_user!, only: [:create]
 
+    # Post /api/follows/ Authenticated user create follow for user from params
     def create
       follow = Follow.new(follow_params)
 

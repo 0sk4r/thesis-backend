@@ -25,6 +25,7 @@ Category.create(name: 'Blockchain')
 Category.create(name: 'Style')
 Category.create(name: 'Politics')
 
+# Create posts
 (1..5).each do |category|
   (1..5).each do |_x|
     Post.create(title: Faker::Book.title, content: Faker::Hacker.say_something_smart, category_id: category, user_id: user1.id)

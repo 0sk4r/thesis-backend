@@ -52,8 +52,11 @@ module Api
     #   }
     # }
     def index
+      # Get paginated posts
       @posts = Post.all.order(created_at: :desc).includes(:user, :category).page(params[:page])
+      # Serialize posts
       @posts_json = ActiveModelSerializers::SerializableResource.new(@posts).as_json
+      # Create response with total items value and per page value
       @response = { posts: @posts_json, meta: { total: @posts.total_count, per_page: @posts.default_per_page } }
       render json: @response, include: %w[user category]
     end
@@ -192,6 +195,7 @@ module Api
       end
     end
 
+    # Search for posts by :key
     def search
       results = Post.search_title(params[:key])
       render json: results

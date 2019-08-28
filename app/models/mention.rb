@@ -11,6 +11,7 @@
 #  updated_at :datetime         not null
 #
 
+# :user is mentioned in :comment
 class Mention < ApplicationRecord
   belongs_to :user
   belongs_to :comment

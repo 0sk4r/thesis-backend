@@ -10,6 +10,7 @@
 #  like_type :integer
 #
 
+# Like for posts
 class Like < ActiveRecord::Base
   validates :post_id, uniqueness: { scope: :user_id }
   validates_presence_of :like_type

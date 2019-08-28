@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Post thumbnail uploader
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -7,6 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
+  # Store file in cloud
   storage :fog
 
   # Override the directory where uploaded files will be stored.

@@ -9,6 +9,7 @@ require 'carrierwave'
 # Initialize the Rails application.
 Rails.application.initialize!
 
+# Settings for sendgrid
 ActionMailer::Base.smtp_settings = {
   user_name: 'apikey',
   password: Rails.application.credentials.sendgrid[:apikey],

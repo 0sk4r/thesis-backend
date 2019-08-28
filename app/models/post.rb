@@ -17,6 +17,7 @@
 class Post < ApplicationRecord
   after_create :notificate_followers
   include PgSearch::Model
+  # Image uploader
   mount_uploader :image, ImageUploader
   belongs_to :user
 
@@ -27,10 +28,12 @@ class Post < ApplicationRecord
 
   validates_presence_of :title, :content
 
+  # Settings for full search text
   pg_search_scope :search_title, against: [:title], using: {
     trigram: { threshold: 0.1 }
   }
 
+  # After create notificate all followers
   def notificate_followers(post_id: id)
     FollowersWorker.perform_async(post_id)
   end

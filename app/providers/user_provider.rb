@@ -8,6 +8,7 @@ class UserProvider
     filter_by_key(key)
   end
 
+  # Filter users nickname by key
   def filter_by_key(key)
     @results = if key.blank?
                  []

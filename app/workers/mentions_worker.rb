@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Find all mentions in comment in background
 class MentionsWorker
   include Sidekiq::Worker
 

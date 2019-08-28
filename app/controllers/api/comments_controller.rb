@@ -17,7 +17,7 @@ module Api
     # params:
     #       :post_id Post ID of associated post
     #       :content  comment content
-    # Response with updated post data
+    # Response with created comment
 
     def create
       comment = Comment.new(comment_params)

@@ -10,6 +10,7 @@
 #  updated_at :datetime         not null
 #
 
+# Categories for post
 class Category < ApplicationRecord
   has_many :posts
   validates :name, uniqueness: true

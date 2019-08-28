@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Create notification
 class NotificationsService
   def initialize(action_id:, action_type:, user_id:)
     @action_id = action_id
