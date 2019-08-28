@@ -19,11 +19,14 @@ Rails.application.routes.draw do
     patch '/users/edit', to: 'users#update'
     get '/users/edit', to: 'users#edit'
     get '/users/find', to: 'users#find'
-    resources :users, only: %i[show edit update]
+    get '/users/:id/page/:page', to: 'users#show'
+    resources :users, only: %i[edit update]
 
     get '/users/:id/posts', to: 'users#user_posts'
     delete '/notifications/delete_all', to: 'notifications#destroy_all'
     resources :notifications, only: %i[index destroy]
     resources :categories, only: %i[index show]
+
+    post '/follows/', to: 'follows#create'
   end
 end

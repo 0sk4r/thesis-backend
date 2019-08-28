@@ -35,7 +35,10 @@ module Api
     def show
       id = params[:id]
       @user = User.find(id)
-      render json: @user
+      @posts = @user.posts.page(params[:page])
+      @posts_json = ActiveModelSerializers::SerializableResource.new(@posts).as_json
+      @response = { user: @user, posts: @posts_json, meta: { total: @posts.total_count, per_page: @posts.default_per_page } }
+      render json: @response
     end
 
     # GET /api/users/:id/posts Get selected user posts

@@ -38,4 +38,5 @@ class User < ActiveRecord::Base
   validates :nickname, uniqueness: true
   has_many :posts, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :follows, foreign_key: 'following_id'
 end
